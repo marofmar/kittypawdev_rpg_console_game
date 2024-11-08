@@ -13,7 +13,6 @@ class Game {
   Monster? monster;
   int monsterKillCount = 0;
   bool portionUsed = false;
-  int battleRound = 0;
 
   Game(this.character, this.monsters) {
     monster = getRandomMonster();
@@ -35,7 +34,7 @@ class Game {
     bool isRun = true;
     while (isRun && character.isAlive()) {
       while (character.isAlive() && monster!.isAlive()) {
-        battleRound++; // 라운드 시작할 때마다 카운트 증가
+        monster!.battleRound++; // 라운드 시작할 때마다 카운트 증가
         String? choice;
         while (choice == null) {
           stdout.write("행동을 선택하세요 (1: 공격, 2: 방어, 3: 특수 아이템 사용(공격력x2)): ");
@@ -90,7 +89,7 @@ class Game {
         }
 
         if (monster!.isAlive()) {
-          if (battleRound % 3 == 0) {
+          if (monster!.battleRound % 3 == 0) {
             monster!.dp += 2;
             print(
                 "${monster!.name}의 방어력이 2 증가하였습니다. ${monster!.name} dp: ${monster!.dp}");

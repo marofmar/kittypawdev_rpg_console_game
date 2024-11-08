@@ -9,6 +9,7 @@ class Monster {
   int hp; // health point
   int ap; // character's dp <= ap <= Max attack point
   int dp = 0; // defense point
+  int battleRound = 0;
 
   Monster(this.name, this.hp, this.ap);
   @override
