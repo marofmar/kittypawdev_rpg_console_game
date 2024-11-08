@@ -12,6 +12,7 @@ class Game {
   List<Monster> monsters;
   Monster? monster;
   int monsterKillCount = 0;
+  bool portionUsed = false;
 
   Game(this.character, this.monsters) {
     monster = getRandomMonster();
@@ -27,13 +28,15 @@ class Game {
   }
 
   final yesRegExp = RegExp(r'^[yY](es)?$');
+
+  // 전투 함수
   bool battle() {
     bool isRun = true;
     while (isRun && character.isAlive()) {
       while (character.isAlive() && monster!.isAlive()) {
         String? choice;
         while (choice == null) {
-          stdout.write("행동을 선택하세요 (1: 공격, 2: 방어): ");
+          stdout.write("행동을 선택하세요 (1: 공격, 2: 방어, 3: 특수 아이템 사용(공격력x2)): ");
           choice = stdin.readLineSync(); //
         }
         if (choice == "1") {
@@ -70,6 +73,15 @@ class Game {
           character.defend(monster!);
           character.showStatus();
           monster!.showStatus();
+        } else if (choice == "3") {
+          if (!portionUsed) {
+            character.ap *= 2;
+            portionUsed = true;
+            print("${character.nickName}의 공격력이 2배로 증가했습니다.");
+            character.showStatus();
+          } else {
+            print("이미 특수 아이템을 사용했습니다. 사용할 수 없는 옵션입니다.");
+          }
         } else {
           print("잘못된 입력입니다. 다시 입력하세요.");
           continue;

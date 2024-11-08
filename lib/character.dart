@@ -19,21 +19,21 @@ class Character {
 
   void attack(Monster monster) {
     print('$nickName의 턴!');
-    int damage = max(0, (ap - monster.dp) as int);
+    int damage = max(0, (ap - monster.dp));
     monster.hp -= damage;
     print('໒(⊙ᴗ⊙)७ $nickName이(가) ${monster.name}에게 $damage만큼의 피해를 입혔습니다!');
   }
 
   void defend(Monster monster) {
     print('defend!');
-    int defense = min(dp, (monster.ap - dp) as int);
-    this.hp += defense;
+    int defense = min(dp, (monster.ap - dp));
+    hp += defense;
     print('ᕙ(⇀‸↼‶)ᕗ $nickName이(가) 방어 태세를 취하여 $defense 만큼 체력을 얻었습니다.');
     print('');
   }
 
   void showStatus() {
-    print('${this.nickName} -  체력:${this.hp} 공격력:${this.ap} 방어력:${this.dp}');
+    print('${nickName} -  체력:${hp} 공격력:${ap} 방어력:${dp}');
     print('');
   }
 }
