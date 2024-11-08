@@ -37,7 +37,12 @@ class Game {
         monster!.battleRound++; // 라운드 시작할 때마다 카운트 증가
         String? choice;
         while (choice == null) {
-          stdout.write("행동을 선택하세요 (1: 공격, 2: 방어, 3: 특수 아이템 사용(공격력x2)): ");
+          if (!portionUsed) {
+            stdout.write("행동을 선택하세요 (1: 공격, 2: 방어, 3: 특수 아이템 사용(공격력x2)): ");
+          } else {
+            stdout.write("행동을 선택하세요 (1: 공격, 2: 방어): ");
+          }
+
           choice = stdin.readLineSync(); //
         }
         if (choice == "1") {
@@ -82,6 +87,7 @@ class Game {
             character.showStatus();
           } else {
             print("이미 특수 아이템을 사용했습니다. 사용할 수 없는 옵션입니다.");
+            continue;
           }
         } else {
           print("잘못된 입력입니다. 다시 입력하세요.");
