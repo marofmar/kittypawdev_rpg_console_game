@@ -1,2 +1,5 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# 텍스트 전투 게임
+
+## 실행 방법
+
+dart run
