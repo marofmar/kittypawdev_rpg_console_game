@@ -26,7 +26,7 @@ class Character {
 
   void defend(Monster monster) {
     print('defend!');
-    int defense = min(dp, (monster.ap - dp));
+    int defense = ap;
     hp += defense;
     print('ᕙ(⇀‸↼‶)ᕗ $nickName이(가) 방어 태세를 취하여 $defense 만큼 체력을 얻었습니다.');
     print('');
