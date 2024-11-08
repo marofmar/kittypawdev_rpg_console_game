@@ -3,7 +3,7 @@ import 'dart:async';
 import 'dart:math';
 import 'monster.dart';
 
-// 예외처리 추가: 빈 문자열, 특수문자나 숫자 안됨, 한글이나 영문 대소문자만 가능.s
+// 예외처리 추가: 빈 문자열, 특수문자나 숫자 안됨, 한글이나 영문 대소문자만 가능
 class Character {
   final String nickName; // 생성자에서 입력받는 변수 final
   int hp; // health point
@@ -33,7 +33,7 @@ class Character {
   }
 
   void showStatus() {
-    print('${nickName} -  체력:${hp} 공격력:${ap} 방어력:${dp}');
+    print('$nickName -  체력:$hp 공격력:$ap 방어력:$dp');
     print('');
   }
 }

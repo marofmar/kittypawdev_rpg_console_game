@@ -12,7 +12,7 @@ class Game {
   List<Monster> monsters;
   Monster? monster;
   int monsterKillCount = 0;
-  bool portionUsed = false;
+  bool portionUsed = false; // 특별 아이템 portion !
 
   Game(this.character, this.monsters) {
     monster = getRandomMonster();
@@ -138,6 +138,8 @@ Future<GameResult?> startGame() async {
     return null;
   }
   character.showStatus();
+
+  // 30%의 확률로 캐릭터 체력 10 증가
   int chance = RandomUtil.random.nextInt(10);
 
   if (chance < 3) {

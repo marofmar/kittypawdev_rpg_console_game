@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:async';
 import 'dart:core';
 import 'character.dart';
 import 'dart:math';
@@ -25,7 +24,7 @@ class Monster {
   }
 
   void showStatus() {
-    print("$name - 체력:${hp} 공격력:${ap}");
+    print("$name - 체력:$hp 공격력:$ap");
     print('');
   }
 }
