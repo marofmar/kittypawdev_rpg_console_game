@@ -21,7 +21,6 @@ class Game {
   Monster? getRandomMonster() {
     if (monsters.isEmpty) {
       throw Exception("더 이상 싸울 몬스터가 없습니다.");
-      return null;
     }
     monster = monsters[RandomUtil.random.nextInt(monsters.length)];
     return monster;
