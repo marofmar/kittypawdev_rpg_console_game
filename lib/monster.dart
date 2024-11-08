@@ -21,11 +21,11 @@ class Monster {
     int damage = max(0, ap - character.dp);
     character.hp -= damage;
     print("몬스터 $name이(가) ${character.nickName}에게 ${damage}의 피해를 입혔습니다!");
-    print('');
   }
 
   void showStatus() {
-    print("현재 체력:${this.hp} 공격력:${this.ap}");
+    print("${name} - 체력:${this.hp} 공격력:${this.ap}");
+    print('');
   }
 }
 

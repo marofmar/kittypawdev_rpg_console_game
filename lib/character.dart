@@ -22,7 +22,6 @@ class Character {
     int damage = max(0, (ap - monster.dp) as int);
     monster.hp -= damage;
     print('໒(⊙ᴗ⊙)७ $nickName이(가) ${monster.name}에게 $damage만큼의 피해를 입혔습니다!');
-    print('');
   }
 
   void defend(Monster monster) {
@@ -34,7 +33,8 @@ class Character {
   }
 
   void showStatus() {
-    print('현재 ${this.nickName}의 체력:${this.hp} 공격력:${this.ap} 방어력:${this.dp}');
+    print('${this.nickName} -  체력:${this.hp} 공격력:${this.ap} 방어력:${this.dp}');
+    print('');
   }
 }
 
