@@ -3,11 +3,14 @@ import 'dart:io';
 import 'character.dart';
 import 'monster.dart';
 
+class RandomUtil {
+  static final Random random = Random();
+}
+
 class Game {
   final Character character;
   List<Monster> monsters;
   Monster? monster;
-  final Random _random = Random();
   int monsterKillCount = 0;
 
   Game(this.character, this.monsters) {
@@ -19,7 +22,7 @@ class Game {
       throw Exception("더 이상 싸울 몬스터가 없습니다.");
       return null;
     }
-    monster = monsters[_random.nextInt(monsters.length)];
+    monster = monsters[RandomUtil.random.nextInt(monsters.length)];
     return monster;
   }
 
@@ -110,6 +113,13 @@ Future<GameResult?> startGame() async {
   if (character == null) {
     print("character 로드 실패");
     return null;
+  }
+  character.showStatus();
+  int chance = RandomUtil.random.nextInt(10);
+
+  if (chance < 3) {
+    character.hp += 10;
+    print("보너스 체력을 얻었습니다! 현재 체력: ${character.hp}");
   }
 
   List<Monster> monsters = await loadMonster("./monsters.txt");
