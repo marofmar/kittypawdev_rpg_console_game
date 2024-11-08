@@ -174,7 +174,3 @@ class GameResult {
 
   GameResult(this.monsterKillCount, this.character);
 }
-
-void main() async {
-  await startGame();
-}

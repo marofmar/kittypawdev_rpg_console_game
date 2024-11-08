@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:battle_rpg_game/battle.dart';
 
+// 전투 결과 txt 파일로 저장하는 함수
 Future<void> saveResult(GameResult result) async {
   final file = File('result.txt');
   final output = '''물리친 몬스터 수: ${result.monsterKillCount} 

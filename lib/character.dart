@@ -52,24 +52,3 @@ Future<Character?> loadCharacter(String fileName, String nickName) async {
     return null;
   }
 }
-
-void main() async {
-  String? name;
-  while (name == null || name.isEmpty) {
-    stdout.write("캐릭터 이름을 입력하세요: ");
-    name = stdin.readLineSync();
-
-    if (name == null || name.isEmpty) {
-      print("캐릭터 이름을 비워둘 수 없습니다. 다시 입력해 주세요.");
-    }
-  }
-
-  Character? character = await loadCharacter("./characters.txt", name);
-
-  if (character != null) {
-    //print(character);  // Instance of 'Character'
-    character.showStatus();
-  } else {
-    print("실패");
-  }
-}

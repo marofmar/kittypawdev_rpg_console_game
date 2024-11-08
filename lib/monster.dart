@@ -48,15 +48,3 @@ Future<List<Monster>> loadMonster(String fileName) async {
     return [];
   }
 }
-
-void main() async {
-  List<Monster> monsters = await loadMonster("./monsters.txt");
-  if (monsters.isNotEmpty) {
-    for (var monster in monsters) {
-      print(monster);
-      monster.showStatus();
-    }
-  } else {
-    print('fail');
-  }
-}
